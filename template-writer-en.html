@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ============================================================
+  WRITER / AUTHOR BIO TEMPLATE
+  ------------------------------------------------------------
+  HOW TO CUSTOMIZE (5 minutes):
+  1. YOUR NAME ....... Search for "Sarah Mitchell" and replace it
+  2. YOUR TAGLINE .... Edit the .tagline text in the hero
+  3. YOUR PHOTO ...... Replace the initials circle (see "PHOTO"
+                      comment below) with <img src="your-photo.jpg">
+  4. YOUR BIO ........ Edit the text in the #about section
+  5. YOUR ESSAYS ..... Edit the list in the #writing section
+                      (title, date, read time, link)
+  6. YOUR CONTACT .... Edit the email + social links in #contact
+  ============================================================ -->
+<title>Sarah Mitchell — Essays &amp; Writing</title>
+<meta name="description" content="Sarah Mitchell writes essays on attention, craft, and the quiet life.">
+<style>
+  /* ---------- Base ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  :root {
+    --paper: #faf8f3;
+    --ink: #1c1a17;
+    --muted: #6b6560;
+    --accent: #a44a24;
+    --accent-soft: #f3e7de;
+    --line: #e5ddd2;
+    --card: #ffffff;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 18px;
+    line-height: 1.65;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  img { max-width: 100%; height: auto; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- Header / nav ---------- */
+  header.site {
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .nav {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .nav .brand {
+    font-weight: bold;
+    font-size: 19px;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+  }
+  .nav .brand:hover { text-decoration: none; }
+  .nav nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  .nav nav a {
+    color: var(--muted);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+  }
+  .nav nav a:hover { color: var(--accent); text-decoration: none; }
+
+  /* ---------- Hero ---------- */
+  .hero { text-align: center; padding: 64px 0 48px; }
+  /* PHOTO: This circle is a placeholder for your photo.
+     To use a real photo, replace the whole <div class="avatar">
+     with:  <img class="avatar-img" src="your-photo.jpg" alt="Sarah Mitchell"> */
+  .avatar {
+    width: 128px;
+    height: 128px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 8px 24px rgba(164, 74, 36, 0.25);
+  }
+  .avatar-img {
+    width: 128px;
+    height: 128px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
+  .hero h1 {
+    font-size: 42px;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+  .tagline {
+    font-size: 21px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 28px;
+  }
+  .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 11px 22px;
+    border-radius: 999px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid var(--accent);
+  }
+  .btn:hover { text-decoration: none; }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #8d3d1d; }
+  .btn-ghost { color: var(--accent); background: transparent; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 44px 0; border-top: 1px solid var(--line); }
+  section h2 {
+    font-size: 26px;
+    margin: 0 0 18px;
+  }
+  .section-label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 6px;
+  }
+  .bio p { margin: 0 0 16px; }
+  .bio p:last-child { margin-bottom: 0; }
+
+  /* ---------- Writing list ---------- */
+  .essay-list { list-style: none; margin: 0; padding: 0; }
+  .essay-list li {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .essay-list li:last-child { border-bottom: 0; }
+  .essay-list h3 { font-size: 21px; margin: 0 0 6px; line-height: 1.35; }
+  .essay-list h3 a { color: var(--ink); }
+  .essay-list h3 a:hover { color: var(--accent); }
+  .essay-meta {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .essay-list p { margin: 0; color: var(--muted); font-size: 16px; }
+
+  /* ---------- Contact ---------- */
+  .contact-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+  }
+  .contact-card p { margin: 0 0 18px; color: var(--muted); }
+  .email-link {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    word-break: break-all;
+  }
+  .socials {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 0 36px;
+    text-align: center;
+    color: var(--muted);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+  }
+  footer a { color: var(--muted); }
+
+  /* ---------- Small screens ---------- */
+  @media (max-width: 480px) {
+    body { font-size: 17px; }
+    .hero { padding: 48px 0 36px; }
+    .hero h1 { font-size: 33px; }
+    .tagline { font-size: 18px; }
+    section { padding: 36px 0; }
+    .contact-card { padding: 22px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <!-- EDIT: your short name / brand -->
+    <a class="brand" href="#">Sarah Mitchell</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <!-- PHOTO: replace this initials circle with your photo (see comment in <style>) -->
+    <div class="avatar" aria-label="Photo placeholder for Sarah Mitchell">SM</div>
+    <!-- EDIT: your name -->
+    <h1>Sarah Mitchell</h1>
+    <!-- EDIT: your tagline -->
+    <p class="tagline">Essays on attention, craft, and the quiet life.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#writing">Read my essays</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="bio">
+    <p class="section-label">About</p>
+    <h2>A writer who believes slowness is a skill</h2>
+    <!-- EDIT: your bio (2–3 short paragraphs) -->
+    <p>I write about the small, deliberate choices that make a life feel like your own: mornings without a phone, notebooks that outlive apps, and work done slowly on purpose. My essays have appeared in <em>The Common Reader</em>, <em>Field Notes</em>, and <em>The Slow Review</em>.</p>
+    <p>Before writing full-time, I spent eight years as a magazine editor. I live in Portland, Oregon, with two cats and a garden that mostly survives on neglect. My first book, <em>The Unhurried Hour</em>, is out now.</p>
+  </section>
+
+  <!-- ============ DEMO NOTICE ============ -->
+  <section style="margin:2.5rem 0;padding:1.5rem;border:2px dashed #c00;border-radius:12px;background:#fff8f8;">
+    <p style="font-size:1.25rem;font-weight:700;">&#128269; DEMO VERSION</p>
+    <p>This demo shows the design (hero + about). The full template — with all sections, sample content and edit markers — is sent by email after purchase.</p>
+    <p><strong>Price: $5 for this template, $10 for all three.</strong></p>
+    <p>To buy, pay in USDC / USDT / SOL on Solana to:<br><code style="word-break:break-all;">HqxvhpdWdBvjk1JvCwLdrp3fW47Zt1A8Eg1atDwZ3oQQ</code></p>
+    <p>Then DM @mehdivakili060 on X with the transaction ID + your email. Full version within 24 hours.</p>
+  </section>
+
+</main>
+
+<footer>
+  <!-- EDIT: your name -->
+  <p>&copy; <span id="year">2026</span> Sarah Mitchell &middot; Made with patience</p>
+</footer>
+
+<script>
+  // Minimal JS: current year in the footer + smooth anchor scrolling.
+  // No libraries, no tracking.
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
