@@ -23,7 +23,7 @@ All sample content is fictional and realistic-looking, so you see a real site �
 
 Buy from the storefront:
 
-https://vakilimehdi.github.io/crypto-pay-page/
+https://digi-market-shop.netlify.app/
 
 1. Pay the exact price in **USDC on Solana** to:
    `HqxvhpdWdBvjk1JvCwLdrp3fW47Zt1A8Eg1atDwZ3oQQ`
@@ -32,7 +32,7 @@ https://vakilimehdi.github.io/crypto-pay-page/
 
 از فروشگاه بخرید:
 
-https://vakilimehdi.github.io/crypto-pay-page/
+https://digi-market-shop.netlify.app/
 
 ۱. مبلغ دقیق را با **USDC در شبکهٔ سولانا** به این کیف پول بفرستید:
    `HqxvhpdWdBvjk1JvCwLdrp3fW47Zt1A8Eg1atDwZ3oQQ`
