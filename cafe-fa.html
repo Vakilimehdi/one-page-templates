@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ============================================================
+  قالب تک‌صفحه‌ای لندینگ کافه — فارسی و راست‌چین
+  نسخهٔ نمایشی (دمو): هیرو، منو با قیمت، دربارهٔ ما، ساعات کاری،
+  فرم رزرو میز، نظرات مشتری، سوالات متداول، تماس و جای نقشه.
+  ------------------------------------------------------------
+  نحوه شخصی‌سازی (۵ دقیقه):
+  ۱. نام کافه ....... «کافه دنج» را جستجو و جایگزین کنید
+  ۲. رنگ‌ها ......... متغیرهای CSS در :root را عوض کنید
+  ۳. منو و قیمت ..... فهرست‌های بخش #menu را ویرایش کنید
+  ۴. دربارهٔ ما ...... متن بخش #about را با داستان کافه عوض کنید
+  ۵. ساعت کاری ...... جدول بخش #hours را ویرایش کنید
+  ۶. تماس ........... آدرس، تلفن و اینستاگرام بخش #contact را عوض کنید
+  ۷. فرم رزرو ....... فرم فقط در مرورگر پیام موفقیت نشان می‌دهد؛
+                      برای دریافت واقعی رزرو، آن را به واتساپ،
+                      تلگرام یا بک‌اند خود وصل کنید
+  ============================================================ -->
+<title>کافه دنج — قهوهٔ تخصصی و صبحانهٔ خانگی — نسخهٔ نمایشی</title>
+<meta name="description" content="کافه دنج: قهوهٔ تخصصی، صبحانهٔ خانگی و دسرهای تازه. رزرو میز آنلاین.">
+<!-- فونت وزیرمتن از گوگل فونت؛ اگر در دسترس نبود، تاهوما جایگزین می‌شود -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ---------- پایه ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  :root {
+    --paper: #faf6ef;
+    --ink: #2c2118;
+    --muted: #7c6a58;
+    --accent: #78350f;
+    --accent-dark: #572a0c;
+    --accent-soft: #f5e9d8;
+    --gold: #b45309;
+    --line: #e8dcc8;
+    --card: #ffffff;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    font-size: 18px;
+    line-height: 1.9;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  img { max-width: 100%; height: auto; }
+  .wrap { max-width: 960px; margin-inline: auto; padding-inline: 20px; }
+
+  /* ---------- سربرگ / ناوبری ---------- */
+  header.site {
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .nav {
+    max-width: 960px;
+    margin-inline: auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .nav .brand { font-weight: 800; font-size: 20px; color: var(--ink); }
+  .nav .brand:hover { text-decoration: none; }
+  .nav .brand span { color: var(--accent); }
+  .nav nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  .nav nav a { color: var(--muted); font-size: 15px; }
+  .nav nav a:hover { color: var(--accent); text-decoration: none; }
+  .nav .btn { padding: 8px 18px; }
+
+  /* ---------- دکمه‌ها ---------- */
+  .btn {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    border: 1px solid var(--accent);
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .btn:hover { text-decoration: none; }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-dark); }
+  .btn-ghost { color: var(--accent); background: transparent; }
+
+  /* ---------- هیرو ---------- */
+  .hero {
+    text-align: center;
+    padding: 72px 0 56px;
+    background: linear-gradient(180deg, var(--accent-soft), var(--paper));
+  }
+  .hero .badge {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px 16px;
+    font-size: 14px;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .hero h1 { font-size: 44px; line-height: 1.35; margin: 0 0 14px; font-weight: 800; }
+  .hero h1 span { color: var(--accent); }
+  .tagline { font-size: 20px; color: var(--muted); margin: 0 0 30px; }
+  .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .hero-meta { margin-top: 26px; font-size: 15px; color: var(--muted); }
+  .hero-meta b { color: var(--ink); }
+
+  /* ---------- بخش‌ها ---------- */
+  section { padding: 48px 0; border-top: 1px solid var(--line); }
+  section h2 { font-size: 28px; margin: 0 0 8px; font-weight: 800; }
+  .section-label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin: 0 0 6px;
+  }
+  .section-intro { color: var(--muted); margin: 0 0 28px; }
+
+  /* ---------- منو ---------- */
+  .menu-group { margin-bottom: 32px; }
+  .menu-group h3 {
+    font-size: 21px;
+    margin: 0 0 12px;
+    font-weight: 800;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 4px;
+  }
+  .menu-list { list-style: none; margin: 0; padding: 0; }
+  .menu-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .menu-list li:last-child { border-bottom: 0; }
+  .menu-item b { font-size: 17px; }
+  .menu-item span { display: block; font-size: 14px; color: var(--muted); }
+  .menu-list .price {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .menu-list .price small { font-size: 12px; color: var(--muted); font-weight: 400; }
+
+  /* ---------- دربارهٔ ما ---------- */
+  .about p { margin: 0 0 16px; }
+  .about p:last-child { margin-bottom: 0; }
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+  .stat-card b { display: block; font-size: 26px; color: var(--accent); }
+  .stat-card span { font-size: 14px; color: var(--muted); }
+
+  /* ---------- فرم رزرو ---------- */
+  .booking-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px;
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .form-field { display: flex; flex-direction: column; gap: 6px; }
+  .form-field.full { grid-column: 1 / -1; }
+  .form-field label { font-size: 15px; font-weight: 700; }
+  .form-field input, .form-field select, .form-field textarea {
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--paper);
+    color: var(--ink);
+    width: 100%;
+  }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+  .form-error { color: #b91c1c; font-size: 14px; margin: 12px 0 0; display: none; }
+  .form-success {
+    display: none;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    color: #065f46;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-top: 16px;
+  }
+
+  /* ---------- ساعات کاری ---------- */
+  .hours-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .hours-table td {
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--line);
+    font-size: 16px;
+  }
+  .hours-table tr:last-child td { border-bottom: 0; }
+  .hours-table td:last-child { text-align: left; font-weight: 700; }
+
+  /* ---------- نظرات مشتری ---------- */
+  .quote-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .quote-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px;
+  }
+  .quote-card p { margin: 0 0 12px; font-size: 17px; }
+  .quote-card footer { color: var(--muted); font-size: 14px; }
+
+  /* ---------- سوالات متداول ---------- */
+  .faq-item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .faq-q {
+    width: 100%;
+    text-align: right;
+    background: none;
+    border: 0;
+    padding: 16px 20px;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .faq-a { display: none; padding: 0 20px 18px; color: var(--muted); }
+  .faq-item.open .faq-a { display: block; }
+
+  /* ---------- تماس ---------- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .contact-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 24px;
+  }
+  .contact-card h3 { margin: 0 0 10px; font-size: 19px; }
+  .contact-card p { margin: 0 0 8px; color: var(--muted); }
+  .contact-card p b { color: var(--ink); }
+  .map-placeholder {
+    background: var(--accent-soft);
+    border: 1px dashed var(--accent);
+    border-radius: 14px;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--accent);
+    font-weight: 700;
+    padding: 20px;
+  }
+
+  /* ---------- پاصفحه ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 0 36px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  /* ---------- نمایشگرهای کوچک ---------- */
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    .hero { padding: 52px 0 40px; }
+    .hero h1 { font-size: 32px; }
+    .tagline { font-size: 17px; }
+    section { padding: 36px 0; }
+    .form-grid, .contact-grid { grid-template-columns: 1fr; }
+    .booking-card { padding: 20px 16px; }
+  }
+
+  /* ---------- بنر نسخهٔ نمایشی ---------- */
+  .demo-banner {
+    background: #fef3c7;
+    border-bottom: 2px solid #f59e0b;
+    color: #92400e;
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.8;
+  }
+  .demo-banner a { color: #92400e; text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="demo-banner">نسخهٔ نمایشی — شما دموی این قالب را می‌بینید. نسخهٔ کامل (با جدول قیمت، فرم رزرو، نظرات مشتری و سوالات متداول) را از فروشگاه دیجی‌مارکت بخرید: <a href="https://digi-market-shop.netlify.app/">https://digi-market-shop.netlify.app/</a></div>
+
+
+<header class="site">
+  <div class="nav">
+    <!-- ویرایش: نام کوتاه / برند شما -->
+    <a class="brand" href="#">کافه <span>دنج</span></a>
+    <nav>
+      <a href="#menu">منو</a>
+      <a href="#about">دربارهٔ ما</a>
+      <a href="#hours">ساعات کاری</a>
+      <a href="#contact">تماس</a>
+    </nav>
+    <a class="btn btn-primary" href="#booking">رزرو میز</a>
+  </div>
+</header>
+
+<main>
+  <!-- ============ هیرو ============ -->
+  <div class="hero">
+    <div class="wrap">
+      <span class="badge">قهوهٔ تخصصی &middot; از سال ۱۳۹۸</span>
+      <!-- ویرایش: تیتر اصلی -->
+      <h1>جایی برای <span>آرام</span> نشستن</h1>
+      <!-- ویرایش: شعار شما -->
+      <p class="tagline">قهوهٔ تازه‌آسیاب، صبحانهٔ خانگی و دسرهای روز — در کافه‌ای کوچک و دنج، وسط شلوغی شهر.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#booking">رزرو میز</a>
+        <a class="btn btn-ghost" href="#menu">دیدن منو و قیمت‌ها</a>
+      </div>
+      <p class="hero-meta">امتیاز <b>۴٫۸ از ۵</b> از بیش از <b>۵۰۰</b> نظر مشتری &middot; اینترنت رایگان و فضای کار</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- ============ منو ============ -->
+    <section id="menu">
+      <p class="section-label">منو</p>
+      <h2>منو و قیمت‌ها</h2>
+      <p class="section-intro">همهٔ قیمت‌ها به تومان و شامل مالیات است. منوی فصلی هر سه ماه عوض می‌شود.</p>
+      <!-- ویرایش: آیتم‌ها، توضیح و قیمت هر گروه -->
+      <div class="menu-group">
+        <h3>نوشیدنی‌های گرم</h3>
+        <ul class="menu-list">
+          <li><div class="menu-item"><b>اسپرسو</b><span>تک‌شات، دانهٔ عربیکا</span></div></li>
+          <li><div class="menu-item"><b>کاپوچینو</b><span>شیر بخار‌داده، فوم غلیظ</span></div></li>
+          <li><div class="menu-item"><b>کافه لاته</b><span>شیر گرم، لاته‌آرت</span></div></li>
+          <li><div class="menu-item"><b>هات‌چاکلت</b><span>شکلات تلخ ۷۰٪ با خامه</span></div></li>
+          <li><div class="menu-item"><b>چای ماسالا</b><span>چای، شیر، هل و دارچین</span></div></li>
+        </ul>
+      </div>
+      <div class="menu-group">
+        <h3>نوشیدنی‌های سرد</h3>
+        <ul class="menu-list">
+          <li><div class="menu-item"><b>آیس لاته</b><span>اسپرسو سرد با شیر و یخ</span></div></li>
+          <li><div class="menu-item"><b>موکا سرد</b><span>اسپرسو، شکلات و شیر سرد</span></div></li>
+          <li><div class="menu-item"><b>لیموناد تازه</b><span>لیمو، نعناع و سودا</span></div></li>
+          <li><div class="menu-item"><b>اسموتی توت‌فرنگی</b><span>توت‌فرنگی، موز و ماست</span></div></li>
+        </ul>
+      </div>
+      <div class="menu-group">
+        <h3>دسر و شیرینی</h3>
+        <ul class="menu-list">
+          <li><div class="menu-item"><b>چیزکیک نیویورکی</b><span>با سس توت‌فرنگی</span></div></li>
+          <li><div class="menu-item"><b>تیرامیسو</b><span>دستور کلاسیک ایتالیایی</span></div></li>
+          <li><div class="menu-item"><b>براونی شکلاتی</b><span>گرم، با بستنی وانیلی</span></div></li>
+          <li><div class="menu-item"><b>کرواسان کره‌ای</b><span>تازه از فر، هر صبح</span></div></li>
+        </ul>
+      </div>
+      <div class="menu-group">
+        <h3>صبحانه</h3>
+        <ul class="menu-list">
+          <li><div class="menu-item"><b>صبحانهٔ دنج</b><span>تخم‌مرغ، پنیر، گردو، نان تازه و چای</span></div></li>
+          <li><div class="menu-item"><b>املت سبزیجات</b><span>قارچ، اسفناج و پنیر فتا</span></div></li>
+          <li><div class="menu-item"><b>پنکیک عسل</b><span>سه لایه، عسل و گردو</span></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ دربارهٔ ما ============ -->
+    <section id="about" class="about">
+      <p class="section-label">دربارهٔ ما</p>
+      <h2>کافه‌ای که با یک دستگاه اسپرسوی دست‌دوم شروع شد</h2>
+      <!-- ویرایش: داستان کافهٔ خود را بنویسید -->
+      <p>کافه دنج را سال ۱۳۹۸ دو برادر با یک دستگاه اسپرسوی دست‌دوم و شش میز راه انداختند. امروز هنوز همان‌قدر کوچک‌ایم — و عمداً همین‌طور مانده‌ایم: دانه‌ها را هفته‌ای دو بار تازه برشته می‌کنیم، نان و شیرینی را هر صبح در آشپزخانهٔ خودمان می‌پزیم و اسم مشتری‌های ثابت را از بر هستیم.</p>
+      <p>اینجا هم برای یک قهوهٔ سریع سر راه کار مناسب است، هم برای ساعت‌ها نشستن با کتاب یا لپ‌تاپ؛ اینترنت رایگان است و پریز کنار بیشتر میزهاست.</p>
+      <div class="about-stats">
+        <div class="stat-card"><b>۷</b><span>سال تجربه</span></div>
+        <div class="stat-card"><b>۱۲</b><span>نوع قهوهٔ تخصصی</span></div>
+        <div class="stat-card"><b>۵۰۰+</b><span>نظر ۵ ستاره</span></div>
+      </div>
+    </section>
+
+    
+    <!-- ============ ساعات کاری ============ -->
+    <section id="hours">
+      <p class="section-label">ساعات کاری</p>
+      <h2>کی باز هستیم؟</h2>
+      <!-- ویرایش: روزهای کاری و ساعت‌ها -->
+      <table class="hours-table">
+        <tr><td>شنبه تا پنجشنبه</td><td>۸:۰۰ تا ۲۳:۰۰</td></tr>
+        <tr><td>جمعه</td><td>۱۰:۰۰ تا ۲۳:۰۰</td></tr>
+      </table>
+    </section>
+
+    
+    
+    <!-- ============ تماس ============ -->
+    <section id="contact">
+      <p class="section-label">تماس</p>
+      <h2>ما را پیدا کنید</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <!-- ویرایش: آدرس، تلفن و شبکه‌های اجتماعی -->
+          <h3>کافه دنج</h3>
+          <p><b>آدرس:</b> تهران، خیابان انقلاب، نبش خیابان وصال، پلاک ۴۵</p>
+          <p><b>تلفن:</b> <a href="tel:+982166554433" dir="ltr">۰۲۱-۶۶۵۵۴۴۳۳</a></p>
+          <p><b>اینستاگرام:</b> <a href="#" dir="ltr">@donj.cafe</a></p>
+          <p><b>ساعات کاری:</b> هر روز ۸ تا ۲۳ (جمعه از ۱۰)</p>
+        </div>
+        <!-- ویرایش: به‌جای این جعبه، کد جاسازی نقشه (گوگل‌مپ یا نشان)
+             را بگذارید -->
+        <div class="map-placeholder">جای نقشهٔ کافه<br>اینجا قرار می‌گیرد</div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <!-- ویرایش: نام شما -->
+  <p>&copy; <span id="year">۱۴۰۵</span> کافه دنج &middot; همهٔ حقوق محفوظ است.</p>
+</footer>
+
+<script>
+  // جاوااسکریپت حداقلی: سال جاری شمسی، بازشوی سوالات متداول و اعتبارسنجی فرم رزرو.
+  // بدون کتابخانه، بدون ردیابی.
+  try {
+    document.getElementById('year').textContent =
+      new Intl.DateTimeFormat('fa-IR', { year: 'numeric' }).format(new Date());
+  } catch (e) {
+    document.getElementById('year').textContent = new Date().getFullYear();
+  }
+
+  document.querySelectorAll('.faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      btn.parentElement.classList.toggle('open');
+    });
+  });
+
+  var form = document.getElementById('booking-form');
+  if (form) {
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var err = document.getElementById('bk-error');
+      var ok = document.getElementById('bk-success');
+      err.style.display = 'none';
+      ok.style.display = 'none';
+      var name = document.getElementById('bk-name').value.trim();
+      var phone = document.getElementById('bk-phone').value.trim().replace(/[۰-۹]/g, function (d) { return '۰۱۲۳۴۵۶۷۸۹'.indexOf(d); });
+      var date = document.getElementById('bk-date').value;
+      var time = document.getElementById('bk-time').value;
+      var guests = document.getElementById('bk-guests').value;
+      if (!name || !phone || !date || !time || !guests) {
+        err.textContent = 'لطفاً همهٔ فیلدهای ستاره‌دار را پر کنید.';
+        err.style.display = 'block';
+        return;
+      }
+      if (!/^09\d{9}$/.test(phone)) {
+        err.textContent = 'شماره موبایل معتبر نیست؛ با ۰۹ شروع شود و ۱۱ رقم باشد.';
+        err.style.display = 'block';
+        return;
+      }
+      ok.textContent = 'رزرو شما ثبت شد، ' + name + ' عزیز! میز ' + guests + ' در تاریخ ' + date + ' ساعت ' + time + ' — برای تأیید نهایی با شما تماس می‌گیریم.';
+      ok.style.display = 'block';
+      form.reset();
+    });
+  }
+</script>
+</body>
+</html>
