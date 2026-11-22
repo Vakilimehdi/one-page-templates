@@ -21,15 +21,23 @@ All sample content is fictional and realistic-looking, so you see a real site �
 
 ## How to buy — نحوهٔ خرید
 
-1. Pay in **USDC / USDT / SOL on Solana** to:
-   `HqxvhpdWdBvjk1JvCwLdrp3fW47Zt1A8Eg1atDwZ3oQQ`
-2. DM **@mehdivakili060** on X with the transaction ID + your email.
-3. The full template files are emailed to you within 24 hours.
+Buy from the storefront:
 
-1. مبلغ را با **USDC / USDT / SOL در شبکهٔ سولانا** به این کیف پول بفرستید:
+https://github.com/Vakilimehdi/crypto-pay-page
+
+1. Pay the exact price in **USDC on Solana** to:
    `HqxvhpdWdBvjk1JvCwLdrp3fW47Zt1A8Eg1atDwZ3oQQ`
-2. هش تراکنش و ایمیلت را به **@mehdivakili060** در ایکس دایرکت بدهید.
-3. فایل‌های کامل تا ۲۴ ساعت بعد با ایمیل دریافت می‌کنید.
+2. Email the transaction signature + product code (`bio-fa`, `portfolio-en`, `writer-en`, or `templates-set` for all three) to **mehdivakili0@gmail.com**.
+3. The payment is verified on-chain and the full template files are emailed to you automatically, usually within an hour.
+
+از فروشگاه بخرید:
+
+https://github.com/Vakilimehdi/crypto-pay-page
+
+۱. مبلغ دقیق را با **USDC در شبکهٔ سولانا** به این کیف پول بفرستید:
+   `HqxvhpdWdBvjk1JvCwLdrp3fW47Zt1A8Eg1atDwZ3oQQ`
+۲. امضای تراکنش و کد محصول (`bio-fa`، `portfolio-en`، `writer-en` یا `templates-set` برای هر سه) را به **mehdivakili0@gmail.com** ایمیل کنید.
+۳. پرداخت روی بلاک‌چین بررسی می‌شود و فایل‌های کامل معمولاً تا یک ساعت بعد، خودکار با ایمیل می‌رسند.
 
 ## Customize in 5 minutes — سفارشی‌سازی در ۵ دقیقه
 
